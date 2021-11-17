@@ -15,7 +15,7 @@ function Latest() {
 	}
 
 	useEffect(() => {
-		myClient.fetch(`*[_type == "gallery"]|order(_createdAt desc)[0...4]{_id, mainImage{asset->{_id, url}}}`).then((data) => setData(data)).catch(console.error)
+		myClient.fetch(`*[_type == "gallery"]|order(_createdAt desc){_id, mainImage{asset->{_id, url}}}`).then((data) => setData(data)).catch(console.error)
 	}, [])
 
 	if (!data) {
