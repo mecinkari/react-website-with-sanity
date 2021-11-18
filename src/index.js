@@ -5,11 +5,15 @@ import App from './App';
 import Header from './components/Header';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom'
+import Footer from './components/Footer';
 
 ReactDOM.render(
   <BrowserRouter>
-    <Header />
-    <App />
+    <div className="flex flex-col">
+      <Header />
+      <App />
+      <Footer />
+    </div>
   </BrowserRouter>,
   document.getElementById('root')
 );

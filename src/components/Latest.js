@@ -41,8 +41,9 @@ function Latest() {
 		<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 mb-6 gap-12">
 			<Modal modal={modal} setModal={setModal} modalImg={modalImg} setModalImg={setModalImg} />
 			{data && data.map((post, index) => (
-				<div className="aspect-w-1 aspect-h-1" key={index}>
-					<img className="w-full h-full object-top object-cover lg:w-full lg:h-full" alt={post._id} src={post.mainImage.asset.url} onClick={() => clickImage(post.mainImage.asset.url)} />
+				<div onClick={() => clickImage(post.mainImage.asset.url)} className="aspect-w-1 cursor-pointer group transition-all duration-150 transform hover:scale-105 relative aspect-h-1" key={index}>
+					<div className="absolute group-hover:opacity-0 transition-all duration-150 opacity-5 top-0 left-0 w-full h-full bg-black z-10"></div>
+					<img className="w-full h-full object-top object-cover lg:w-full lg:h-full" alt={post._id} src={post.mainImage.asset.url} />
 				</div>
 			))}
 		</div>
