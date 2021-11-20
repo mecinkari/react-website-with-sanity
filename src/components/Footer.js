@@ -17,7 +17,7 @@ function Footer() {
 					<p className="text-xl font-bold mb-3">Social Links</p>
 					<ol className="list-inside divide-y">
 						{socialLinks.map((link, index) => {
-							return <li key={index}><a target="_blank" className="py-2 px-4 block" href={link.href} >{link.title}</a></li>
+							return <li key={index}><a target="_blank" rel="noreferrer" className="py-2 px-4 block" href={link.href} >{link.title}</a></li>
 						})}
 					</ol>
 				</div>

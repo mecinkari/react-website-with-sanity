@@ -15,7 +15,7 @@ function Latest() {
 	}
 
 	useEffect(() => {
-		myClient.fetch(`*[_type == "gallery"]|order(_createdAt desc)[0...4]{_id, mainImage{asset->{_id, url}}}`).then((data) => setData(data)).catch(console.error)
+		myClient.fetch(`*[_type == "gallery"]|order(_createdAt desc)[0...3]{_id, mainImage{asset->{_id, url}}}`).then((data) => setData(data)).catch(console.error)
 	}, [])
 
 	if (!data) {
@@ -38,10 +38,11 @@ function Latest() {
 	}
 
 	return (
-		<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 mb-6 gap-12">
+		<div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 mb-6">
 			<Modal modal={modal} setModal={setModal} modalImg={modalImg} setModalImg={setModalImg} />
+			<div className="hidden lg:block aspect-w-1 aspect-h-1"></div>
 			{data && data.map((post, index) => (
-				<div onClick={() => clickImage(post.mainImage.asset.url)} className="aspect-w-1 cursor-pointer group transition-all duration-150 transform hover:scale-105 relative aspect-h-1" key={index}>
+				<div onClick={() => clickImage(post.mainImage.asset.url)} className="aspect-w-1 cursor-pointer group transition-all duration-150 transform hover:scale-95 relative aspect-h-1" key={index}>
 					<div className="absolute group-hover:opacity-0 transition-all duration-150 opacity-5 top-0 left-0 w-full h-full bg-black z-10"></div>
 					<img className="w-full h-full object-top object-cover lg:w-full lg:h-full" alt={post._id} src={post.mainImage.asset.url} />
 				</div>
